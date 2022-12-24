@@ -1,1 +1,53 @@
 JavaScript Modules
+
+LATAR BELAKANG
+    - Dahulu kode program JavaScript biasanya dimulai dari kode yang kecil dan sedikit disetiap halaman, jadi jarang sekali kita akan menggunakan kode javascript dengan ukuran besar dalam halaman web.
+    - Namun saat ini, kebutuhan web sudah berbeda, semenjak makin populernya framework2 JavaScript untuk membuat frontend, kebutuhan pembuatan kode JS semakin kompleks dan besar.
+    - Oleh karna itu, sudah seharusnya saat ini, saat membuat kode JS, kita perlu melakukan mekanisme memotong-motong kode JS, sehingga tidak terlalu kompleks dan banyak dalam satu file JS.
+
+- JavaScript Modules merupakan fiture dimana kita bisa membuat module (kode Javascript yang bisa digunakan ulang) untuk kode javascript lain.
+- javascript Modules diawali pada teknologi bernama NodeJS, selanjutnya banyak library yang mengadopsi penggunaan JavaScript Modules di NodeJS agar bisa berjalan di web Browser, seperti library CommonJS, AMD ReqireJS, dan Lain-lain.
+- Namun untungnya, saat ini Browser modern sudah banyak mendukung JavaScript Modules, kecuali jika masih menggunakan internet explorer.
+
+Import dan Export
+    - Secara garis besar, ada dua kata kunci yang digunakan dalam JS Modules, yaitu import dan export.
+    - Import merupakan kata kuunci yang digunakan untuk maengambil sesuatu dari model lain.
+    - Sedangkan export merupakan kata kunci yang digunakan untuk memberitahu model lain, bagian mana yang ingin kita ekposes keluar, sehingga bisa di-import oleh model lain.
+
+
+LIVE SERVER
+    - Saat kita menggunakan fiture JS module, sangat disarankan untuk menjalankan kode JS kita dalam web server.
+    - Hal ini karna spesifikasi dari JS module meminta secara default kode JS perlu satu domain server yang sama, jika kita membuat file HTML menggunakan URL file://, maka dikhawatirkan akan terjadi eror CORS(Cross Origin Resurce Sharing)
+
+
+TANPA MODULE 
+    - Saat kita membuat file JS, lalu kita load file JS tersebut di web. secara default semua kode JS di file tersebut bisa diakses, baik itu variable, function atau class.
+
+
+DENGAN MODULE
+    - Namun jika kita menggunakan module, kta bisa secara selectif memilih bagian kode mana yang ingin kita expose keluar.
+    - Secara default kode yang kita buat mengggunakan JS Module tidak bisa digunakan dari luar file, kecuali kita memintanya untuk mengexpose keluar.
+
+    Membuat module
+    - Membuat module sangat sederhana, kita cukup membuat file JS saja.
+    - Ynag membedakan adalah, saat kita meload file JS dari HTNL, kita tiidak menggunakan type JS lagi, melainkan menggunakan type module.
+
+    File .js dan .mjs
+    - karna file JS Module sebenarnya sama dengan JS, kadang developer membedakan nama file untuk JS Module menggunakan .mjs 
+    - Hal ini sebenarnya tidak ada kewajiban, hanya saja agar memudahkan ketika tahapan development, kita bisa dengan mudah membedakan file JS biasa, mana file JS module hanya dengan extention filenya.
+    - pada kelas ini, kita akan tetap menggunakan file .js ketika membuat module, agar tidak membingungkan untuk pemula.
+
+    Kenapa Errror
+        - Secara default, saat kita menggunakan fiture JS module. semua kode (function, variable, class dll). tida akan di ekpose keluar module tsb.
+        - Jika kita ingin mengekpose kode tsb, kita harus memberitahunya secara explisit. Menggunakan kata kunci export.
+
+    EXPORT
+        - export merupakan kata kunci yang digunakan untuk mengexpose kode dari sebuah module.
+        - expose bisa ditambahkan diawal variable, function atau class.
+
+    IMPORT 
+        - Export digunakan untuk mengexpose kode di module, jika kita ingin menggunakan kode yang sudah di expose di module, kita bisa menggunakan kata kunci import.
+        - Cara menggunakan kata kunci import adalah sebagai berikut :
+            import {namaFunction, namaVariable, namaClass} from "lokasi-module.js" 
+        - Module hanya bisa digunakan di module lain, jadi pastikan ketika membuat script, kita harus menggunakan type module.
+        - Saat menggunakan import, kita perlu lagi menambahkan script module src satu per satu, karna sudah di handle oleh browser secara otomatis ketika menggunakan module.
